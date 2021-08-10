@@ -1,0 +1,17 @@
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.DomainService.deps.json
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.DomainService.dll
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\ref\eShop.DomainService.dll
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.DomainService.pdb
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.DomainModel.dll
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.DomainModel.pdb
+E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\eShop.DomainService.csprojAssemblyReference.cache
+E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\eShop.DomainService.GeneratedMSBuildEditorConfig.editorconfig
+E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\eShop.DomainService.AssemblyInfoInputs.cache
+E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\eShop.DomainService.AssemblyInfo.cs
+E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\eShop.DomainService.csproj.CoreCompileInputs.cache
+E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\eShop.DomainService.csproj.CopyComplete
+E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\eShop.DomainService.dll
+E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\ref\eShop.DomainService.dll
+E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\eShop.DomainService.pdb
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.Utility.dll
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.Utility.pdb

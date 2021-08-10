@@ -1,0 +1,12 @@
+E:\source\repos\Eshop\eShop.DomainModel\bin\Debug\net5.0\eShop.DomainModel.deps.json
+E:\source\repos\Eshop\eShop.DomainModel\bin\Debug\net5.0\eShop.DomainModel.dll
+E:\source\repos\Eshop\eShop.DomainModel\bin\Debug\net5.0\ref\eShop.DomainModel.dll
+E:\source\repos\Eshop\eShop.DomainModel\bin\Debug\net5.0\eShop.DomainModel.pdb
+E:\source\repos\Eshop\eShop.DomainModel\obj\Debug\net5.0\eShop.DomainModel.csprojAssemblyReference.cache
+E:\source\repos\Eshop\eShop.DomainModel\obj\Debug\net5.0\eShop.DomainModel.GeneratedMSBuildEditorConfig.editorconfig
+E:\source\repos\Eshop\eShop.DomainModel\obj\Debug\net5.0\eShop.DomainModel.AssemblyInfoInputs.cache
+E:\source\repos\Eshop\eShop.DomainModel\obj\Debug\net5.0\eShop.DomainModel.AssemblyInfo.cs
+E:\source\repos\Eshop\eShop.DomainModel\obj\Debug\net5.0\eShop.DomainModel.csproj.CoreCompileInputs.cache
+E:\source\repos\Eshop\eShop.DomainModel\obj\Debug\net5.0\eShop.DomainModel.dll
+E:\source\repos\Eshop\eShop.DomainModel\obj\Debug\net5.0\ref\eShop.DomainModel.dll
+E:\source\repos\Eshop\eShop.DomainModel\obj\Debug\net5.0\eShop.DomainModel.pdb

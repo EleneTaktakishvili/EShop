@@ -1,0 +1,12 @@
+E:\source\repos\Eshop\eShop.Utility\bin\Debug\net5.0\eShop.Utility.deps.json
+E:\source\repos\Eshop\eShop.Utility\bin\Debug\net5.0\eShop.Utility.dll
+E:\source\repos\Eshop\eShop.Utility\bin\Debug\net5.0\ref\eShop.Utility.dll
+E:\source\repos\Eshop\eShop.Utility\bin\Debug\net5.0\eShop.Utility.pdb
+E:\source\repos\Eshop\eShop.Utility\obj\Debug\net5.0\eShop.Utility.csprojAssemblyReference.cache
+E:\source\repos\Eshop\eShop.Utility\obj\Debug\net5.0\eShop.Utility.GeneratedMSBuildEditorConfig.editorconfig
+E:\source\repos\Eshop\eShop.Utility\obj\Debug\net5.0\eShop.Utility.AssemblyInfoInputs.cache
+E:\source\repos\Eshop\eShop.Utility\obj\Debug\net5.0\eShop.Utility.AssemblyInfo.cs
+E:\source\repos\Eshop\eShop.Utility\obj\Debug\net5.0\eShop.Utility.csproj.CoreCompileInputs.cache
+E:\source\repos\Eshop\eShop.Utility\obj\Debug\net5.0\eShop.Utility.dll
+E:\source\repos\Eshop\eShop.Utility\obj\Debug\net5.0\ref\eShop.Utility.dll
+E:\source\repos\Eshop\eShop.Utility\obj\Debug\net5.0\eShop.Utility.pdb

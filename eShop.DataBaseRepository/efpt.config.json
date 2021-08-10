@@ -1,0 +1,72 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "DBContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Db",
+   "OutputPath": "Db\/Models",
+   "ProjectRootNamespace": "eShop.DataBaseRepository",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[ShopOrders].[OrderDetails]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ShopOrders].[Orders]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ShopOrders].[OrderStatus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ShopProducts].[Categories]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ShopProducts].[ProductImages]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ShopProducts].[Products]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ShopProducts].[ProductsInCategory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ShopUsers].[Roles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ShopUsers].[Users]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ShopUsers].[UsersInRoles]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "DESKTOP-8UBTMMS.eShop",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

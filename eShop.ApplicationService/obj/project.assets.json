@@ -1,0 +1,147 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "eShop.DataTransferObject/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/eShop.DataTransferObject.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/eShop.DataTransferObject.dll": {}
+        }
+      },
+      "eShop.DomainModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/eShop.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/eShop.DomainModel.dll": {}
+        }
+      },
+      "eShop.DomainService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "eShop.DomainModel": "1.0.0",
+          "eShop.Utility": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/eShop.DomainService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/eShop.DomainService.dll": {}
+        }
+      },
+      "eShop.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/eShop.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/eShop.Utility.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "eShop.DataTransferObject/1.0.0": {
+      "type": "project",
+      "path": "../eShop.DataTransferObject/eShop.DataTransferObject.csproj",
+      "msbuildProject": "../eShop.DataTransferObject/eShop.DataTransferObject.csproj"
+    },
+    "eShop.DomainModel/1.0.0": {
+      "type": "project",
+      "path": "../eShop.DomainModel/eShop.DomainModel.csproj",
+      "msbuildProject": "../eShop.DomainModel/eShop.DomainModel.csproj"
+    },
+    "eShop.DomainService/1.0.0": {
+      "type": "project",
+      "path": "../eShop.DomainService/eShop.DomainService.csproj",
+      "msbuildProject": "../eShop.DomainService/eShop.DomainService.csproj"
+    },
+    "eShop.Utility/1.0.0": {
+      "type": "project",
+      "path": "../eShop.Utility/eShop.Utility.csproj",
+      "msbuildProject": "../eShop.Utility/eShop.Utility.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "eShop.DataTransferObject >= 1.0.0",
+      "eShop.DomainModel >= 1.0.0",
+      "eShop.DomainService >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\ETaktakishvili\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\source\\repos\\Eshop\\eShop.ApplicationService\\eShop.ApplicationService.csproj",
+      "projectName": "eShop.ApplicationService",
+      "projectPath": "E:\\source\\repos\\Eshop\\eShop.ApplicationService\\eShop.ApplicationService.csproj",
+      "packagesPath": "C:\\Users\\ETaktakishvili\\.nuget\\packages\\",
+      "outputPath": "E:\\source\\repos\\Eshop\\eShop.ApplicationService\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\ETaktakishvili\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "E:\\source\\repos\\Eshop\\eShop.DataTransferObject\\eShop.DataTransferObject.csproj": {
+              "projectPath": "E:\\source\\repos\\Eshop\\eShop.DataTransferObject\\eShop.DataTransferObject.csproj"
+            },
+            "E:\\source\\repos\\Eshop\\eShop.DomainModel\\eShop.DomainModel.csproj": {
+              "projectPath": "E:\\source\\repos\\Eshop\\eShop.DomainModel\\eShop.DomainModel.csproj"
+            },
+            "E:\\source\\repos\\Eshop\\eShop.DomainService\\eShop.DomainService.csproj": {
+              "projectPath": "E:\\source\\repos\\Eshop\\eShop.DomainService\\eShop.DomainService.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

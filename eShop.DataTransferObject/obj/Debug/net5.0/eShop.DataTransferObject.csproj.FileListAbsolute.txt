@@ -1,0 +1,12 @@
+E:\source\repos\Eshop\eShop.DataTransferObject\bin\Debug\net5.0\eShop.DataTransferObject.deps.json
+E:\source\repos\Eshop\eShop.DataTransferObject\bin\Debug\net5.0\eShop.DataTransferObject.dll
+E:\source\repos\Eshop\eShop.DataTransferObject\bin\Debug\net5.0\ref\eShop.DataTransferObject.dll
+E:\source\repos\Eshop\eShop.DataTransferObject\bin\Debug\net5.0\eShop.DataTransferObject.pdb
+E:\source\repos\Eshop\eShop.DataTransferObject\obj\Debug\net5.0\eShop.DataTransferObject.csprojAssemblyReference.cache
+E:\source\repos\Eshop\eShop.DataTransferObject\obj\Debug\net5.0\eShop.DataTransferObject.GeneratedMSBuildEditorConfig.editorconfig
+E:\source\repos\Eshop\eShop.DataTransferObject\obj\Debug\net5.0\eShop.DataTransferObject.AssemblyInfoInputs.cache
+E:\source\repos\Eshop\eShop.DataTransferObject\obj\Debug\net5.0\eShop.DataTransferObject.AssemblyInfo.cs
+E:\source\repos\Eshop\eShop.DataTransferObject\obj\Debug\net5.0\eShop.DataTransferObject.csproj.CoreCompileInputs.cache
+E:\source\repos\Eshop\eShop.DataTransferObject\obj\Debug\net5.0\eShop.DataTransferObject.dll
+E:\source\repos\Eshop\eShop.DataTransferObject\obj\Debug\net5.0\ref\eShop.DataTransferObject.dll
+E:\source\repos\Eshop\eShop.DataTransferObject\obj\Debug\net5.0\eShop.DataTransferObject.pdb

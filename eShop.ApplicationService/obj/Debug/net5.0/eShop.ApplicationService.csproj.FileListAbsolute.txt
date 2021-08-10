@@ -1,0 +1,33 @@
+E:\source\repos\New folder (2)\eShop.ApplicationService\bin\Debug\net5.0\eShop.ApplicationService.deps.json
+E:\source\repos\New folder (2)\eShop.ApplicationService\bin\Debug\net5.0\eShop.ApplicationService.dll
+E:\source\repos\New folder (2)\eShop.ApplicationService\bin\Debug\net5.0\ref\eShop.ApplicationService.dll
+E:\source\repos\New folder (2)\eShop.ApplicationService\bin\Debug\net5.0\eShop.ApplicationService.pdb
+E:\source\repos\New folder (2)\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.csprojAssemblyReference.cache
+E:\source\repos\New folder (2)\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.GeneratedMSBuildEditorConfig.editorconfig
+E:\source\repos\New folder (2)\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.AssemblyInfoInputs.cache
+E:\source\repos\New folder (2)\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.AssemblyInfo.cs
+E:\source\repos\New folder (2)\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.csproj.CoreCompileInputs.cache
+E:\source\repos\New folder (2)\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.dll
+E:\source\repos\New folder (2)\eShop.ApplicationService\obj\Debug\net5.0\ref\eShop.ApplicationService.dll
+E:\source\repos\New folder (2)\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.pdb
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.ApplicationService.deps.json
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.ApplicationService.dll
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\ref\eShop.ApplicationService.dll
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.ApplicationService.pdb
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.DataTransferObject.dll
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.DomainModel.dll
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.DomainService.dll
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.DataTransferObject.pdb
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.DomainModel.pdb
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.DomainService.pdb
+E:\source\repos\Eshop\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.csprojAssemblyReference.cache
+E:\source\repos\Eshop\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.GeneratedMSBuildEditorConfig.editorconfig
+E:\source\repos\Eshop\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.AssemblyInfoInputs.cache
+E:\source\repos\Eshop\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.AssemblyInfo.cs
+E:\source\repos\Eshop\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.csproj.CoreCompileInputs.cache
+E:\source\repos\Eshop\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.csproj.CopyComplete
+E:\source\repos\Eshop\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.dll
+E:\source\repos\Eshop\eShop.ApplicationService\obj\Debug\net5.0\ref\eShop.ApplicationService.dll
+E:\source\repos\Eshop\eShop.ApplicationService\obj\Debug\net5.0\eShop.ApplicationService.pdb
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.Utility.dll
+E:\source\repos\Eshop\eShop.ApplicationService\bin\Debug\net5.0\eShop.Utility.pdb
