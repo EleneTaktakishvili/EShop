@@ -8,7 +8,7 @@ namespace eShop.DataBaseRepository.Db.Models
 {
     public partial class ProductImages
     {
-        public Guid Id { get; set; }
+        public Guid ImageId { get; set; }
         public Guid ProductId { get; set; }
         public string ImagePath { get; set; }
         public bool IsMain { get; set; }

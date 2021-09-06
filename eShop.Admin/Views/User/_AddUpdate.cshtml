@@ -1,0 +1,33 @@
+﻿@model eShop.Admin.Models.UserModel
+
+<div class="form-group row">
+    <div class="col-md-12">
+        <input type="hidden" asp-for="Id" name="Id" />
+        <input type="text" autocomplete="off" asp-for="FirtsName" name="FirtsName" class="form-control" placeholder="სახელი">
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-12">
+        <input type="text" autocomplete="off" asp-for="LastName" name="LastName" class="form-control" placeholder="გვარი">
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-12">
+        <input type="text" autocomplete="off" asp-for="Email" name="Email" class="form-control" placeholder="ელ.ფოსტა">
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-12">
+        <select class="form-select"  id="roleDropDownList">
+            <option value="Select">როლი</option>
+        </select>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">დახურვა</button>
+    <button type="submit" class="btn btn-success" onclick="AddUpdatePost('Category/SaveUpdate')">შენახვა</button>
+</div>
+

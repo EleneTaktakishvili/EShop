@@ -15,3 +15,5 @@ E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\ref\eShop.DomainServi
 E:\source\repos\Eshop\eShop.DomainService\obj\Debug\net5.0\eShop.DomainService.pdb
 E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.Utility.dll
 E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.Utility.pdb
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.DataTransferObject.dll
+E:\source\repos\Eshop\eShop.DomainService\bin\Debug\net5.0\eShop.DataTransferObject.pdb

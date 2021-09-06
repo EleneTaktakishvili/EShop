@@ -1,0 +1,19 @@
+﻿@model UserAddressModel
+
+<form asp-controller="Order" asp-action="AddAddress" method="post">
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="text" autocomplete="off" asp-for="City" name="City" class="form-control" placeholder="ქალაქი">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="text" autocomplete="off" asp-for="Address" name="Address" class="form-control" placeholder="მისამართი">
+        </div>
+    </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">დახურვა</button>
+            <button type="submit" class="btn btn-success">შენახვა</button>
+        </div>
+</form>
+

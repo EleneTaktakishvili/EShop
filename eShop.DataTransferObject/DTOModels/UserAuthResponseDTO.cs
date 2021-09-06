@@ -10,4 +10,5 @@ namespace eShop.DataTransferObject.DTOModels
     {
         public Guid? SessionID { get; set; }
     }
+  
 }

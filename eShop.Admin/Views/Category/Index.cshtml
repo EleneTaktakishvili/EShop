@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 <p>
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#categoryModal">კატეგორიის დამატება</button>
+    <button type="button" class="btn btn-success" onclick="AddUpdateGet('Category/SaveUpdate', 'დამატება', '@Guid.Empty')">კატეგორიის დამატება</button>
 </p>
 
-<table class="table">
+<table class="table" id="category-table">
     <thead>
         <tr>
             <th>
@@ -16,26 +16,34 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateCreated)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateChanged)
+            </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-            <td>
-                <button class="btn btn-success btn-sm rounded-0" type="button" data-placement="top" data-toggle="modal" data-target="#categoryModal" title="რედაქტირება" ><i class="fa fa-edit"></i></button>
-                <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="წაშლა"><i class="fa fa-trash"></i></button>
-            </td>
-        </tr>
-        }
+    <tbody class="tbody">
     </tbody>
+    <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateChanged)
+                </td>
+                <td>
+                    <button class="btn btn-success btn-sm rounded-0" type="button" data-placement="top" onclick="AddUpdateGet('Category/SaveUpdate', 'რედაქტირება', '@item.Id')" title="რედაქტირება"><i class="fa fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" onclick="Delete('Category/DeleteCategory','@item.Id')" title="წაშლა"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+            }
+        </tbody>
 </table>
 
 <!--Category Modal -->
@@ -45,15 +53,107 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                @*<partial name="_CreateEdit" model="new CategoryModel()" />*@
+                <partial name="_AddUpdate" model="new CategoryModel()" />
             </div>
         </div>
     </div>
 </div>
 
 
+<script>
+    $(document).ready(function () {
+
+        AddUpdateGet = (url, title, Id) => {
+            try {
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    dataType: 'JSON',
+                    contentType: "application/json; charset=utf-8",
+                    data: {
+                        id: Id
+                    },
+                    success: function (response) {
+                        $('#categoryModal .modal-body').html(response.html);
+                        $('#categoryModal .modal-body #Id').val(response.id);
+                        $('#categoryModal .modal-body #Name').val(response.name);
+                        $('#categoryModal .modal-title').html(title);
+                        $('#categoryModal').modal('show');
+                    },
+                    error: function (err) {
+                        $.notify(err, "error");
+                    }
+                })
+                return false;
+            } catch (ex) {
+                console.log(ex)
+            }
+        }
+
+        AddUpdatePost = (url) => {     
+            let categoryModel = {
+                Id: $('#categoryModal .modal-body #Id').val(),
+                Name: $('#categoryModal .modal-body #Name').val()
+            };
+            try {
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: { category: categoryModel },                   
+                    success: function (response) {
+                        $('#categoryModal').modal('hide');
+                        if (response.success) {                         
+                            $.notify(response.responseText, "success");                          
+                            Reload();
+                        } else {
+                            $.notify(response.responseText, "error");
+                        }  
+                    },
+                    error: function (err) {
+                        $.notify(err, "error");
+                    }
+                })
+                return false;
+            } catch (ex) {
+                console.log(ex)
+            }
+        }
+
+        Delete = (url, Id) => {           
+            if (confirm('Are you sure to delete this record ?')) {
+                try {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                         data: { Id: Id  },                  
+                        success: function (response) {                        
+                            if (response.success) {                             
+                                $.notify(response.responseText, "success");
+                                Reload();
+
+                            } else {
+                                $.notify(response.responseText, "error");
+                            }     
+                        },
+                        error: function (err) {
+                            $.notify(err, "error");
+                        }
+                    })
+                } catch (ex) {
+                    console.log(ex)
+                }
+            }
+            return false;
+        }
+
+        function Reload() {
+            setTimeout(function () { window.location.reload();}, 1000); 
+        }
+       
+    });
+</script>

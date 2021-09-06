@@ -5,7 +5,7 @@
 }
 <p>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#userModal">მომხმარებლის დამატება</button>
+    <button type="button" class="btn btn-success" onclick="AddUpdateGet('User/SaveUpdate', 'დამატება', '@Guid.Empty')">მომხმარებლის დამატება</button>
 </p>
 
 <table class="table">
@@ -50,30 +50,98 @@
                     @Html.DisplayFor(modelItem => item.IsActive)
                 </td>
                 <td>
-                    <button class="btn btn-success btn-sm rounded-0" type="button" data-placement="top" data-toggle="modal" data-target="#userModal" title="რედაქტირება" data-id="@item.Id"><i class="fa fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="წაშლა"><i class="fa fa-trash"></i></button>
+                    <button class="btn btn-success btn-sm rounded-0" type="button" data-placement="top" onclick="AddUpdateGet('User/SaveUpdate', 'რედაქტირება', '@item.Id')" title="რედაქტირება"><i class="fa fa-edit"></i></button>
+                    @*<button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="წაშლა"><i class="fa fa-trash"></i></button>*@
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+
 <!--User Modal -->
-<div class="modal" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+
+<div class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" id="userModal">
+    <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="userModalLabel">მომხმარებლის დამატება/რედაქტირება</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                ....................
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">დახურვა</button>
-                <button type="submit" class="btn btn-success">შენახვა</button>
+                <partial name="_AddUpdate" model="new UserModel()" />
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+
+        AddUpdateGet = (url, title, Id) => {
+            try {
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    dataType: 'JSON',
+                    contentType: "application/json; charset=utf-8",
+                    data: {
+                        id: Id
+                    },
+                    success: function (response) {
+                        for (var i = 0; i < response.length; i++) {
+                            $("#roleDropDownList").append("<option value='" + response[i].id + "'>" + response[i].name + "</option>");
+                        }  
+
+                        $('#userModal .modal-body').html(response.html);
+                        $('#userModal .modal-title').html(title);
+                        $('#userModal').modal('show');
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+                return false;
+            } catch (ex) {
+                console.log(ex)
+            }
+        }
+
+        AddUpdatePost = (url) => {
+            let categoryModel = {
+                Id: $('#categoryModal .modal-body #Id').val(),
+                Name: $('#categoryModal .modal-body #Name').val()
+            };
+            try {
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: { category: categoryModel },
+                    success: function (response) {
+                        $('#categoryModal').modal('hide');
+                        if (response.success) {
+                            $.notify(response.responseText, "success");
+                            Reload();
+
+                        } else {
+                            $.notify(response.responseText, "error");
+                        }
+                    },
+                    error: function (err) {
+                        $.notify(err, "error");
+                    }
+                })
+                return false;
+            } catch (ex) {
+                console.log(ex)
+            }
+        }
+      
+        function Reload() {
+            setTimeout(function () { window.location.reload(); }, 1000);
+        }
+
+    });
+</script>

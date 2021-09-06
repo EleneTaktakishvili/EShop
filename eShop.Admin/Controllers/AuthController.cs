@@ -3,10 +3,6 @@ using eShop.ApplicationService.ServiceInterfaces;
 using eShop.DataTransferObject.DTOModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace eShop.Admin.Controllers
 {
@@ -49,6 +45,16 @@ namespace eShop.Admin.Controllers
             {
                 return View(ResponseCore.Messages);
             }         
+        }
+
+        [Route("logOut")]
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Remove("SessionID");
+            HttpContext.Session.Remove("UserName");
+            HttpContext.Session.Clear();        
+
+            return RedirectToAction("Login", "Auth");
         }
     }
 }

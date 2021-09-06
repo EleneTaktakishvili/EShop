@@ -1,3 +1,8 @@
 ﻿.bg-cover{
     background-image:url('../assets/cover.jpg')
 }
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: black;
+}
+

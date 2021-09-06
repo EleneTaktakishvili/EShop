@@ -18,12 +18,10 @@ namespace eShop.DomainService.Services
         {
             return _CategoryRepository.GetAll();
         }
-
         public CategoryEntity GetCategory(Guid Id)
         {
             return _CategoryRepository.GetCategory(Id);
         }
-
         public bool SaveUpDate(CategoryEntity entity)
         {
             return _CategoryRepository.SaveUpDate(entity);

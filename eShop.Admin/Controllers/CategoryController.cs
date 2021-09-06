@@ -20,28 +20,30 @@ namespace eShop.Admin.Controllers
             _Mapper = Mapper;
         }
 
+        [Route("categories")]
         public IActionResult Index()
         {
             return View(GetList());
         }
-        public ActionResult SaveUpdate(string id)
+
+        [HttpGet]
+        public ActionResult SaveUpdate(Guid id)
         {
-            if (string.IsNullOrEmpty(id))
+            if (id == Guid.Empty)
             {
                 return Json(new CategoryModel());
             }
             else
-            {
-                Guid Id = new Guid(id);
-                var categoryDTO = _CategoryApplicationService.GetCategory(Id);
+            {               
+                var categoryDTO = _CategoryApplicationService.GetCategory(id);
 
                 if (categoryDTO == null)
                 {
-                    return NotFound();
+                     return NotFound();
                 }
                 else
                 {
-                    CategoryModel categoryModel = _Mapper.Map<CategoryModel>(categoryDTO);
+                    CategoryModel categoryModel = _Mapper.Map<CategoryModel>(categoryDTO);                   
                     return Json(categoryModel);
                 }
             }
@@ -50,18 +52,34 @@ namespace eShop.Admin.Controllers
         [HttpPost]
         public IActionResult SaveUpdate(CategoryModel category)
         {
+            var result = false;
+
             if (ModelState.IsValid)
             {
                 CategoryDTO categoryDTO = _Mapper.Map<CategoryDTO>(category);
-                var result = _CategoryApplicationService.SaveUpDate(categoryDTO);
+                result = _CategoryApplicationService.SaveUpDate(categoryDTO);
             }
-            return View("Index", GetList());           
+            if (result)
+            {
+                return Json(new { success = true, responseText = "წარმატებით დაემატა!" });
+            }
+            else
+            {
+                return Json(new { success = false, responseText = "მოხდა შეცდომა!" });
+            }
         }
 
         public IActionResult DeleteCategory(Guid Id)
         {
             var result = _CategoryApplicationService.DeleteCategory(Id);
-            return View();
+            if (result)
+            {
+                return Json(new { success = true, responseText = "წარმატებით წაიშალა!" });
+            }
+            else
+            {
+                return Json(new { success = false, responseText = "მოხდა შეცდომა!" });
+            }
         }
         public List<CategoryModel> GetList()
         {
@@ -69,6 +87,6 @@ namespace eShop.Admin.Controllers
             List<CategoryModel> list = _Mapper.Map<List<CategoryModel>>(categoryDTO);
 
             return list;
-        }
+        }       
     }
 }

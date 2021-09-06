@@ -17,3 +17,5 @@ E:\source\repos\Eshop\eShop.DataBaseRepository\obj\Debug\net5.0\ref\eShop.DataBa
 E:\source\repos\Eshop\eShop.DataBaseRepository\obj\Debug\net5.0\eShop.DataBaseRepository.pdb
 E:\source\repos\Eshop\eShop.DataBaseRepository\bin\Debug\net5.0\eShop.Utility.dll
 E:\source\repos\Eshop\eShop.DataBaseRepository\bin\Debug\net5.0\eShop.Utility.pdb
+E:\source\repos\Eshop\eShop.DataBaseRepository\bin\Debug\net5.0\eShop.DataTransferObject.dll
+E:\source\repos\Eshop\eShop.DataBaseRepository\bin\Debug\net5.0\eShop.DataTransferObject.pdb

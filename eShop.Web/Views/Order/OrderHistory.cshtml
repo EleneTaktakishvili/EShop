@@ -1,0 +1,64 @@
+﻿@model IEnumerable<OrderModel>
+
+<div style="margin:30px;">
+    <h3>შეკვეთები</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">სტატუსი</th>
+                <th scope="col">ფასი</th>
+                <th scope="col">თარიღი</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int iteration = 1;}
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <th scope="row">@iteration</th>
+                    <td>@item.OrderStatus</td>
+                    <td>$@item.TotalPrice</td>
+                    <td>@item.DateCreated</td>
+                    <td>
+                        <button class="btn btn-primary" onclick="OrderHistory('@item.Id')">დეტალურად</button>
+                    </td>
+                </tr>
+                iteration++;
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<!--Category Modal -->
+
+<div class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" id="orderDetailsModal">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">პროდუქტი</th>
+                            <th scope="col">რაოდენობა</th>
+                            <th scope="col">ფასი</th>
+                        </tr>
+                    </thead>
+                    <tbody>                       
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,12 +16,13 @@ namespace eShop.DataBaseRepository.Db.Models
         public Guid Id { get; set; }
         public Guid OrderStatusId { get; set; }
         public Guid UserId { get; set; }
+        public Guid AddressId { get; set; }
         public decimal TotalPrice { get; set; }
-        public string UserAddress { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? DateChanged { get; set; }
         public DateTime? DateDeleted { get; set; }
 
+        public virtual UserAddress Address { get; set; }
         public virtual OrderStatus OrderStatus { get; set; }
         public virtual Users User { get; set; }
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }

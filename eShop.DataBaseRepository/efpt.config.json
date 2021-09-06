@@ -26,6 +26,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[ShopOrders].[UserAddress]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[ShopProducts].[Categories]",
          "ObjectType": 0
       },

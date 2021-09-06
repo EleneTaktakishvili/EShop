@@ -1,0 +1,13 @@
+﻿@model eShop.Admin.Models.CategoryModel
+
+    <div class="form-group row">      
+        <div class="col-md-12">
+            <input  type="hidden" asp-for="Id" name="Id" />
+            <input type="text" autocomplete="off" asp-for="Name" name="Name" class="form-control" placeholder="დასახელება">         
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">დახურვა</button>
+        <button type="submit" class="btn btn-success" onclick="AddUpdatePost('Category/SaveUpdate')" >შენახვა</button>
+    </div>
+

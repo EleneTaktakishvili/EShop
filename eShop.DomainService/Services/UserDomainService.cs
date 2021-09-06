@@ -45,5 +45,26 @@ namespace eShop.DomainService.Services
         {
             return _UserRepository.CheckSessionIsValid(SessionID);
         }
+
+        public List<string> Registration(UserEntity User)
+        {
+            List<string> ValidationResponse = new List<string>();
+
+            ValidationResponse = User.IsValid(UserValidationType.Registration);
+            if (ValidationResponse.Count == 0)
+            {
+                List<string> status = _UserRepository.Registration(User);
+               
+                return status;
+            }
+            else
+            {
+                return ValidationResponse;
+            }
+        }
+        public ICollection<UserAddressEntity> GetUserAddress(Guid UserId)
+        {
+            return _UserRepository.GetUserAddress(UserId);
+        }
     }
 }

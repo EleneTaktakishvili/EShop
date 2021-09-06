@@ -93,7 +93,35 @@ namespace eShop.DomainModel.Entity
         }
         private List<string> RegistrationValidation()
         {
-            return new List<string>();
+            List<string> ErrorResult = new List<string>();
+
+            if (string.IsNullOrEmpty(this.Email))
+            {
+                ErrorResult.Add(UserErrors.Email_Empty.ToString());
+            }
+
+            //if (Regex.IsMatch(this.Email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+            //{
+            //    ErrorResult.Add(UserErrors.Email_Is_Not_Valid.ToString());
+            //}
+
+            if (string.IsNullOrEmpty(this.PasswordHash))
+            {
+                ErrorResult.Add(UserErrors.Password_Empty.ToString());
+            }
+            if (this.PasswordHash != this.RepeatPasswordHash)
+            {
+                ErrorResult.Add(UserErrors.Password_Is_Not_Match.ToString());
+            }
+            if (string.IsNullOrEmpty(this.FirtsName))
+            {
+                ErrorResult.Add(UserErrors.FirstName_Is_Empty.ToString());
+            }
+            if (string.IsNullOrEmpty(this.LastName))
+            {
+                ErrorResult.Add(UserErrors.LastName_Is_Empty.ToString());
+            }
+            return ErrorResult;
         }
         private List<string> ActivationValidation()
         {
@@ -108,19 +136,28 @@ namespace eShop.DomainModel.Entity
         RegistrationForAdmin = 2,
         Activation = 3
     }
-
     public enum UserErrors
     {
         Email_Empty = 0,
         Email_Is_Not_Valid = 1,
         Password_Empty = 2,
-        Password_Is_Not_Match = 3
+        Password_Is_Not_Match = 3,
+        FirstName_Is_Empty = 4,
+        LastName_Is_Empty = 5
     }
-
     public enum UserOperationType
     {
         Login = 0,
         Registration = 1,
         Activation = 2
+    }
+
+
+    public class UserAddressEntity
+    {
+        public Guid ID { get; set; }
+        public Guid UserId { get; set; }
+        public string City { get; set; }
+        public string Address { get; set; }
     }
 }

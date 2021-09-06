@@ -11,10 +11,10 @@ namespace eShop.ApplicationService.Services
     public class CategoryApplicationService : ICategoryApplicationService
     {
         private ICategoryDomainService _CategoryDomainService;
-
+      
         public CategoryApplicationService(ICategoryDomainService CategoryDomainService)
         {
-            _CategoryDomainService = CategoryDomainService;
+            _CategoryDomainService = CategoryDomainService;           
         }     
 
         public ICollection<CategoryDTO> GetAll()

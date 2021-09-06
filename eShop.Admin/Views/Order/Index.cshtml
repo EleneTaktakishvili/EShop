@@ -4,12 +4,6 @@
     ViewData["Title"] = "Index";
 }
 
-<p>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#orderModal">შეკვეთის დამატება</button>
-
-</p>
-
 <table class="table">
     <thead>
         <tr>
@@ -46,38 +40,139 @@
                     @Html.DisplayFor(modelItem => item.TotalPrice)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.OrderStatus)
+                    @Html.DisplayFor(modelItem => item.OrderStatus, new { id = "status" })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DateCreated)
                 </td>
                 <td>
-                    <button class="btn btn-success btn-sm rounded-0" type="button" data-placement="top" data-toggle="modal" data-target="#orderModal" title="რედაქტირება" data-id="@item.Id"><i class="fa fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="წაშლა"><i class="fa fa-trash"></i></button>
+                    <button class="btn btn-primary btn-sm rounded-0" type="button" data-placement="top" onclick="DetailsGet('Order/OrdeDetails', 'შეკვეთის დეტალები', '@item.Id')" title="დეტალები"><i class="fa fa-info"></i></button>
+                    <button class="btn btn-success btn-sm rounded-0" type="button" data-placement="top" onclick="StatusGet('Order/OrderStatus', 'სტატუსის შეცვლა', '@item.Id')" title="რედაქტირება"><i class="fa fa-edit"></i></button>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<!--Role Modal -->
-<div class="modal" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+<!--OrderDetails Modal -->
+<div class="modal" id="orderDetailsModal" tabindex="-1" role="dialog" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="orderModalLabel">შეკვეთის დამატება/რედაქტირება</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="orderDetailsModalLabel"></h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                ....................
+                <table id="orderDetails">
+                </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">დახურვა</button>
-                <button type="submit" class="btn btn-success">შენახვა</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">დახურვა</button>
             </div>
         </div>
     </div>
 </div>
 
+<!--Status Modal -->
+<div class="modal" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderModalLabel"></h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <select name="selValue" class="selectpicker">
+                            <option>Mustard</option>
+                            <option>Ketchup</option>
+                            <option>Relish</option>
+                        </select>
+                        </div>
+                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">დახურვა</button>
+                    </div>
+                </div>
+            </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        DetailsGet = (url, title, Id) => {
+            try {
+                $('#orderDetails').empty();
+
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    dataType: 'JSON',
+                    contentType: "application/json; charset=utf-8",
+                    data: {
+                        id: Id
+                    },
+                    success: function (response) {
+                        var table = '<tr><th>&nbsp;</th><th>დასახელება</th><th>რაოდენობა</th><th>ფასი</th></tr>';
+                        $.each(response, function (i, item) {
+                            table += "<tr><td><img  src=/Images/" + item.productImage + "></td><td>" + item.productName + ' ' + "</td><td>" + item.quantity + "</td><td>" + item.price + "</td></tr>";
+                        });
+                        table += '</table>';
+                        $('#orderDetails').append(table);
+                        $('#orderDetailsModal').modal('show');
+                        $('#orderDetailsModal .modal-title').html(title);
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+                return false;
+            } catch (ex) {
+                console.log(ex)
+            }
+        }
+
+        StatusGet = (url, title, Id) => {
+
+            var t1 = $('#status').val();
+            var t2 = $('#status').text();
+
+            $('select[name=selValue]').val(1);
+            $('.selectpicker').selectpicker('refresh');
+
+            $('#orderModal').modal('show');
+            $('#orderModal .modal-title').html(title);
+
+            //try {
+            //    //$('#orderDetails').empty();
+
+            //    $.ajax({
+            //        type: 'GET',
+            //        url: url,
+            //        dataType: 'JSON',
+            //        contentType: "application/json; charset=utf-8",
+            //        data: {
+            //            id: Id
+            //        },
+            //        success: function (response) {                        
+            //            $('#orderDetailsModal').modal('show');
+            //            $('#orderDetailsModal .modal-title').html(title);
+            //        },
+            //        error: function (err) {
+            //            console.log(err)
+            //        }
+            //    })
+            //    return false;
+            //} catch (ex) {
+            //    console.log(ex)
+            //}
+        }
+    });
+</script>

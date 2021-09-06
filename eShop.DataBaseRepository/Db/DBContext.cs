@@ -27,6 +27,7 @@ namespace eShop.DataBaseRepository.Db
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<ProductsInCategory> ProductsInCategory { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<UserAddress> UserAddress { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<UsersInRoles> UsersInRoles { get; set; }
 
@@ -113,6 +114,8 @@ namespace eShop.DataBaseRepository.Db
                     .HasColumnName("ID")
                     .HasDefaultValueSql("(newid())");
 
+                entity.Property(e => e.AddressId).HasColumnName("AddressID");
+
                 entity.Property(e => e.DateChanged).HasColumnType("date");
 
                 entity.Property(e => e.DateCreated)
@@ -125,11 +128,13 @@ namespace eShop.DataBaseRepository.Db
 
                 entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.UserAddress)
-                    .IsRequired()
-                    .HasMaxLength(500);
-
                 entity.Property(e => e.UserId).HasColumnName("UserID");
+
+                entity.HasOne(d => d.Address)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.AddressId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Orders_UserAddress");
 
                 entity.HasOne(d => d.OrderStatus)
                     .WithMany(p => p.Orders)
@@ -146,11 +151,11 @@ namespace eShop.DataBaseRepository.Db
 
             modelBuilder.Entity<ProductImages>(entity =>
             {
+                entity.HasKey(e => e.ImageId);
+
                 entity.ToTable("ProductImages", "ShopProducts");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .HasDefaultValueSql("(newid())");
+                entity.Property(e => e.ImageId).HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.DateChanged).HasColumnType("date");
 
@@ -175,10 +180,12 @@ namespace eShop.DataBaseRepository.Db
 
             modelBuilder.Entity<Products>(entity =>
             {
+                entity.HasKey(e => e.ProductId);
+
                 entity.ToTable("Products", "ShopProducts");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
+                entity.Property(e => e.ProductId)
+                    .HasColumnName("ProductID")
                     .HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.DateChanged).HasColumnType("date");
@@ -244,6 +251,23 @@ namespace eShop.DataBaseRepository.Db
                 entity.Property(e => e.DateDeleted).HasColumnType("date");
 
                 entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<UserAddress>(entity =>
+            {
+                entity.ToTable("UserAddress", "ShopOrders");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasMaxLength(500);
+
+                entity.Property(e => e.City)
                     .IsRequired()
                     .HasMaxLength(50);
             });

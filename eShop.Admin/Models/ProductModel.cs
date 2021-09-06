@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eShop.Admin.Models
 {
@@ -13,6 +17,9 @@ namespace eShop.Admin.Models
         [DisplayName("აღწერა")]
         public string Description { get; set; }
 
+        [Range(1, 1000)]
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18, 2)")]
         [DisplayName("ფასი")]
         public decimal Price { get; set; }
 
@@ -25,5 +32,9 @@ namespace eShop.Admin.Models
 
         [DisplayName("კატეგორია")]
         public string CategoryName { get; set; }
+
+        public List<IFormFile> Photos { get; set; }
+
+        public List<Guid> CategoryIds { get; set; }
     }
 }

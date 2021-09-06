@@ -1,3 +1,10 @@
+using eShop.ApplicationService.ServiceInterfaces;
+using eShop.ApplicationService.Services;
+using eShop.DataBaseRepository.Dapper;
+using eShop.DataBaseRepository.Repositories;
+using eShop.DomainService.RepositoriInterfaces;
+using eShop.DomainService.ServiceInterfaces;
+using eShop.DomainService.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +30,37 @@ namespace eShop.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<DapperContext>();
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductDomainService, ProductDomainService>();
+            services.AddScoped<IProductApplicationService, ProductApplicationService>();
+
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderDomainService, OrderDomainService>();
+            services.AddScoped<IOrderApplicationService, OrderApplicationService>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserDomainService, UserDomainService>();
+            services.AddScoped<IUserApplicationService, UserApplicationService>();
+
+
+        
+
+            services.AddHttpContextAccessor();
+
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(600);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+
+            });
+
             services.AddControllersWithViews();
         }
 
@@ -41,16 +79,22 @@ namespace eShop.Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
 
+            app.UseCookiePolicy();
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(name: "customProductPaging",
+                    pattern: "Products/{Page}",
+                    defaults: new { controller = "Product", action = "Index" });
+             
+
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Product}/{action=Index}/{id?}");
             });
         }
     }

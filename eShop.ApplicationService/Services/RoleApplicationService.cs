@@ -1,5 +1,6 @@
 ﻿using eShop.ApplicationService.ServiceInterfaces;
 using eShop.DataTransferObject.DTOModels;
+using eShop.DomainModel.Entity;
 using eShop.DomainService.ServiceInterfaces;
 using System.Collections.Generic;
 

@@ -5,7 +5,7 @@
 }
 <p>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#productModal">პროდუქტის დამატება</button>
+    <button type="button" class="btn btn-success" onclick="AddUpdateGet('Product/SaveUpdate', 'დამატება', '@Guid.Empty')">პროდუქტის დამატება</button>
 </p>
 
 <table class="table">
@@ -64,24 +64,152 @@
     </tbody>
 </table>
 
-<!--Role Modal -->
+<!--Product Modal -->
 <div class="modal" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="productModalLabel">პროდუქტის დამატება/რედაქტირება</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                ....................
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">დახურვა</button>
-                <button type="submit" class="btn btn-success">შენახვა</button>
-            </div>
+                <partial name="_AddUpdate" model="new ProductModel()" />
+            </div>         
         </div>
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+
+        let selectedCategoryIds = []
+        let selectedFiles = [];
+
+        $('.custom-file-input').on("change", function () {
+            var fileLabel = $(this).next('.custom-file-label');
+            selectedFiles = $(this)[0].files; //files
+            if (selectedFiles.length > 1) {
+                fileLabel.html(selectedFiles.length + ' files selected');
+            }
+            else if (selectedFiles.length == 1) {
+                fileLabel.html(selectedFiles[0].name);
+            }
+        });
+
+      
+        $('.selectpicker').on('change', function () {          
+            selectedCategoryIds = $('.selectpicker').val()          
+          
+        });
+
+
+        AddUpdateGet = (url, title, Id) => {
+
+            $('#categories').empty().append('აირჩიე კატეგორია');
+
+            try {
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    dataType: 'JSON',
+                    contentType: "application/json; charset=utf-8",
+                    data: {
+                        id: Id
+                    },
+                    success: function (response) {                       
+                        for (var i = 0; i < response.length; i++) {
+                            $("#categories").append("<option value='" + response[i].id + "'>" + response[i].name + "</option>");
+                        }  
+                        $('#productModal .modal-body').html(response.html);
+                        $('#productModal .modal-title').html(title);
+                        $('#productModal').modal('show');
+
+                        $('.selectpicker').selectpicker('refresh');
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+             
+                return false;
+            } catch (ex) {
+                console.log(ex)
+            }
+        }
+
+        AddUpdatePost = (url) => { 
+            let fileData = new FormData();
+            for (let i = 0; i < selectedFiles.length; i++) {
+                fileData.append(selectedFiles[i].name, selectedFiles[i]);
+            }  
+
+
+            let productModel = {
+                Id: $('#productModal .modal-body #Id').val(),
+                Name: $('#productModal .modal-body #Name').val(),
+                Price: $('#productModal .modal-body #Price').val(),
+                Quantity: $('#productModal .modal-body #Quantity').val(),
+                Description: $('#productModal .modal-body #Description').val(),
+                CategoryIds: selectedCategoryIds,
+                Photos: fileData
+            };
+            try {
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: { product: productModel },
+                    success: function (response) {
+                        $('#productModal').modal('hide');
+                        if (response.success) {
+                            $.notify(response.responseText, "success");
+                            Reload();
+
+                        } else {
+                            $.notify(response.responseText, "error");
+                        }
+                    },
+                    error: function (err) {
+                        $.notify(err, "error");
+                    }
+                })
+                return false;
+            } catch (ex) {
+                console.log(ex)
+            }
+        }
+
+        Delete = (url, Id) => {
+            if (confirm('Are you sure to delete this record ?')) {
+                try {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                         data: { Id: Id  },
+                        success: function (response) {
+                            if (response.success) {
+                                $.notify(response.responseText, "success");
+                                Reload();
+
+                            } else {
+                                $.notify(response.responseText, "error");
+                            }
+                        },
+                        error: function (err) {
+                            $.notify(err, "error");
+                        }
+                    })
+                } catch (ex) {
+                    console.log(ex)
+                }
+            }
+            return false;
+        }
+
+        function Reload() {
+            setTimeout(function () { window.location.reload();}, 1000);
+        }
+
+    });
+</script>

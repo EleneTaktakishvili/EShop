@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace eShop.DataBaseRepository.Db.Models
 {
+    /// <summary>
+    /// /category
+    /// </summary>
     public partial class Products
     {
         public Products()
@@ -15,7 +18,7 @@ namespace eShop.DataBaseRepository.Db.Models
             ProductsInCategory = new HashSet<ProductsInCategory>();
         }
 
-        public Guid Id { get; set; }
+        public Guid ProductId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }

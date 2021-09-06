@@ -2,7 +2,9 @@
 using eShop.Admin.Attributes;
 using eShop.Admin.Models;
 using eShop.ApplicationService.ServiceInterfaces;
+using eShop.DataTransferObject.DTOModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 
